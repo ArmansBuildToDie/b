@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
     if (userAgent && userAgent.includes('Roblox')) {
         // If the request is from Roblox, serve the Lua code
         res.type('text/plain');
-        res.send(`if game:GetService("RunService"):IsStudio() then getfenv().print = nil end`); // Replace with your Lua code
+        res.send(`if game:GetService("RunService"):IsServer() then print("server") else print("studio") end`); // Replace with your Lua code
     } else {
         // If the request is from a browser or any other client, serve a video or GIF
         res.redirect('https://media.tenor.com/omKOKKlszw4AAAAd/roblox-girl-turning-roblox.gif'); // Replace with your video/GIF URL
