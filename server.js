@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
         res.send(`print("Hello from a hidden script!")`); // Replace with your Lua code
     } else {
         // If the request is from a browser or any other client, serve a video or GIF
-        res.redirect('https://example.com/your-video-or-gif-url'); // Replace with your video/GIF URL
+        res.redirect('https://media.tenor.com/omKOKKlszw4AAAAd/roblox-girl-turning-roblox.gif'); // Replace with your video/GIF URL
     }
 });
 
