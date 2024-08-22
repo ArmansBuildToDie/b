@@ -1,20 +1,23 @@
 const express = require('express');
 const app = express();
-const port = 3000; // You can change this to any port number you prefer
+const port = process.env.PORT || 3000; // Use Heroku's dynamic port or fallback to 3000
 
-// Middleware to detect User-Agent
-app.get('/script', (req, res) => {
+// Middleware to detect User-Agent and respond accordingly
+app.get('/', (req, res) => {
     const userAgent = req.get('User-Agent');
 
-    if (userAgent.includes('Roblox')) {
+    if (userAgent && userAgent.includes('Roblox')) {
         // If the request is from Roblox, serve the Lua code
         res.type('text/plain');
         res.send(`print("Hello from a hidden script!")`); // Replace with your Lua code
     } else {
-        // If the request is from a browser, serve a video or GIF
+        // If the request is from a browser or any other client, serve a video or GIF
         res.redirect('https://example.com/your-video-or-gif-url'); // Replace with your video/GIF URL
     }
 });
+
+// Serve static files from the "public" directory (if needed)
+app.use(express.static('public'));
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
