@@ -1,0 +1,15 @@
+/* Ensure the html and body elements take up the full viewport */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.gif-background {
+    background-image: url('https://media.tenor.com/omKOKKlszw4AAAAd/roblox-girl-turning-roblox.gif'); /* Path to your GIF file */
+    background-size: cover; /* Cover the entire viewport */
+    background-repeat: no-repeat; /* Prevent repeating */
+    background-position: center; /* Center the GIF */
+    height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+}
